@@ -24,6 +24,7 @@ public class PalTrackerApplication {
         return new InMemoryTimeEntryRepository();
     }
 
+    @Bean
     public ObjectMapper jsonObjectMapper(){
         return Jackson2ObjectMapperBuilder.json()
                 .serializationInclusion(JsonInclude.Include.NON_NULL) // Don’t include null values
