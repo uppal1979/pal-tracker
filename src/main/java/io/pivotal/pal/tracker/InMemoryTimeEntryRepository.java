@@ -81,31 +81,4 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         }
     }
 
-
-    public static void main(String args[])
-    {
-
-        InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
-        TimeEntry created1 = repo.create(new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8));
-        TimeEntry created2 = repo.create(new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8));
-        TimeEntry created3 = repo.create(new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8));
-
-        System.out.println("list = " + repo.timeList);
-
-        TimeEntry updatedEntry = repo.update(
-                created2.getId(),
-                new TimeEntry(321L, 654L, LocalDate.parse("2017-01-09"), 5));
-
-        TimeEntry expected = new TimeEntry(created2.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5);
-
-        System.out.println("list = " + repo.timeList);
-
-
-        //TimeEntry entry1 = new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
-        //repo.create(entry1);
-        System.out.println("updatedEntry = " + updatedEntry);
-        System.out.println("expected = " + expected);
-
-
-    }
 }
