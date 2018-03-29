@@ -1,7 +1,10 @@
 package test.pivotal.pal.trackerapi;
 
 import io.pivotal.pal.tracker.PalTrackerApplication;
+<<<<<<< HEAD
 import org.junit.Ignore;
+=======
+>>>>>>> origin/master
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

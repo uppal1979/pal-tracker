@@ -4,6 +4,7 @@ plugins {
 }
 
 repositories {
+
     mavenCentral()
 }
 
@@ -11,6 +12,14 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1")
+
+        mavenCentral()
+    }
+dependencies{
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+
 }
 
 bootRun.environment([
@@ -19,5 +28,9 @@ bootRun.environment([
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
+
+])
+
+
 ])
 

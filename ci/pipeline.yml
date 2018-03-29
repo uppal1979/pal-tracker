@@ -60,6 +60,7 @@ jobs:
 - name: deploy-review
   plan:
   - get: pal-tracker
+
     passed: [build]
   - get: pal-tracker-artifacts
     trigger: true
@@ -77,6 +78,11 @@ jobs:
       DATABASE_USERNAME: {{review-database-username}}
       DATABASE_PASSWORD: {{review-database-password}}
 
+
+  - get: pal-tracker-artifacts
+    trigger: true
+    passed: [build]
+
   - put: review-deployment
     params:
       manifest: pal-tracker/manifest-review.yml
@@ -87,6 +93,7 @@ jobs:
 - name: deploy-production
   plan:
   - get: pal-tracker
+
     passed: [deploy-review]
   - get: pal-tracker-artifacts
     passed: [deploy-review]
@@ -102,6 +109,10 @@ jobs:
       DATABASE_NAME: {{production-database-name}}
       DATABASE_USERNAME: {{production-database-username}}
       DATABASE_PASSWORD: {{production-database-password}}
+
+  - get: pal-tracker-artifacts
+    passed: [deploy-review]
+
   - put: production-deployment
     params:
       manifest: pal-tracker/manifest-production.yml
